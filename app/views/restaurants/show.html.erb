@@ -1,6 +1,38 @@
 <div class="container">
   <h1>Restaurant 🍵</h1>
+  <div class="top-show">
 
-  <%= @restaurant.name %>
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <div class="info-top">
+        <h2><%= @restaurant.name %></h2>
+        <p>Address: <%= @restaurant.address %> </p>
+        <p>Category: <%= @restaurant.category %></p>
+      </div>
+      <div class="info-down">
+        <%= link_to "Add review", new_restaurant_review_path(@restaurant), class: "btn-small"%>
+      </div>
+    </div>
+  </div>
+  </div>
 
+  <div class="bottom-show">
+    <h2>Check what people are saying about it</h2>
+
+
+      <% @restaurant.reviews.each do |review| %>
+        <p><%= review.content %></p>
+      <% end %>
+
+  </div>
 </div>
+
+<!--
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div> -->
